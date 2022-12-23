@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 mongoose.set('strictQuery', true);
-mongoose.connect("mongodb://127.0.0.1:27017/todolistDB", {useNewUrlParser: true});
+mongoose.connect("mongodb://0.0.0.0:27017/todolistDB", {useNewUrlParser: true});
 
 const itemSchema = new mongoose.Schema({
   name: String,
@@ -139,6 +139,6 @@ app.get("/about", function(req, res){
   res.render("about");
 });
 
-app.listen(3000, function() {
+app.listen($PORT, function() {
   console.log("Server started on port 3000");
 });
